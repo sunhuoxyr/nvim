@@ -10,7 +10,7 @@ keymap.set("n", "x", '"_x', opts)
 
 -- Split window
 keymap.set("n", "<leader>sh", ":split<CR>", opts)
-keymap.set("n", "<l eader>sv", ":vsplit<CR>", opts)
+keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
 
 -- Window movement
 -- keymap.set('n', '<C-h>', '<C-w>h', opts)
@@ -25,8 +25,6 @@ keymap.set("n", "<leader>tp", ":tabp<CR>", opts)
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G", opts)
-
--- Plugin keymaps
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", opts)
