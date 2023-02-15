@@ -32,6 +32,7 @@ treesitter.setup({
 		"dockerfile",
 		"gitignore",
 		"vue",
+		"scss",
 	},
 	-- auto install above language parsers
 	auto_install = true,
