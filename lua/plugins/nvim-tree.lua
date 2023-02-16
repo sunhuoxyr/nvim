@@ -9,6 +9,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 nvimtree.setup({
+
+	update_cwd = true,
 	-- change folder arrow icons
 	renderer = {
 		icons = {

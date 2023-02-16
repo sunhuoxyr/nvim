@@ -11,12 +11,14 @@ keymap.set("n", "x", '"_x', opts)
 -- Split window
 keymap.set("n", "<leader>sh", ":split<CR>", opts)
 keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
+-- 关闭当前页面
+keymap.set("n", "<leader>sc", "<C-w>c", opts)
+-- 关闭其他页面 only
+keymap.set("n", "<leader>so", "<C-w>o", opts)
 
--- Window movement
--- keymap.set('n', '<C-h>', '<C-w>h', opts)
--- keymap.set('n', '<C-j>', '<C-w>j', opts)
--- keymap.set('n', '<C-k>', '<C-w>k', opts)
--- keymap.set('n', '<C-l>', '<C-w>l', opts)
+-- 上下移动选中文本
+keymap.set("v", "J", ":move '>+1<CR>gv-gv", opts)
+keymap.set("v", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Tab movement
 keymap.set("n", "<leader>to", ":tabnew<CR>", opts)
@@ -25,9 +27,6 @@ keymap.set("n", "<leader>tp", ":tabp<CR>", opts)
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G", opts)
-
--- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", opts)
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
@@ -44,9 +43,6 @@ keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts) -- list al
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>", opts) -- list git commits for current file/buffer (use <cr> to checkout) ['gfc' for git file commits]
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts) -- list git branches (use <cr> to checkout) ['gb' for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts) -- list current changes per file with diff preview ['gs' for git status]
-
--- restart lsp server
--- keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
 -- toggleterm
 keymap.set("t", "<esc>", "<C-\\><C-n>", opts)

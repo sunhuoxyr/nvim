@@ -38,6 +38,7 @@ return packer.startup(function(use)
 	use("Mofiqul/dracula.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("norcalli/nvim-colorizer.lua")
+	use("christoomey/vim-tmux-navigator")
 
 	-- essential plugins
 	use("kylechui/nvim-surround") -- add/delete/change surrounding pairs

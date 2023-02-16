@@ -4,11 +4,13 @@ local opt = vim.opt
 opt.relativenumber = true -- fast movement by number + j/k
 opt.number = true
 
--- tabs && indentation
+-- tabs
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
-opt.autoindent = true
+
+-- indentation
+opt.smartindent = true
 
 -- line wrapping
 opt.wrap = false
@@ -23,10 +25,8 @@ opt.cursorline = true
 -- appearance
 opt.termguicolors = true
 opt.background = "dark"
+-- 显示左侧图标指示列
 opt.signcolumn = "yes"
-
--- backspace
-opt.backspace = "indent,eol,start"
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
@@ -37,9 +37,7 @@ opt.splitbelow = true
 
 -- offset
 opt.scrolloff = 5
-
--- mouse
-opt.mouse = "nv"
+opt.sidescrolloff = 5
 
 opt.iskeyword:append("-")
 opt.wildignore:append({ "*/node_modules/*" })
