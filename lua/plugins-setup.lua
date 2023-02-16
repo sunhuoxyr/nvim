@@ -33,23 +33,17 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 	use("nvim-lua/popup.nvim")
-	use("rcarriga/nvim-notify") -- notify
-	use("tpope/vim-repeat") --  . command enhance
+
 	-- Colorschemes
 	use("Mofiqul/dracula.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("norcalli/nvim-colorizer.lua")
-
-	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
-
-	use("szw/vim-maximizer") -- maximizes and restores current window
 
 	-- essential plugins
 	use("kylechui/nvim-surround") -- add/delete/change surrounding pairs
 
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
-	use("folke/todo-comments.nvim")
 
 	-- file explorer
 	use("nvim-tree/nvim-tree.lua")
@@ -100,21 +94,13 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
-	-- git integration
-	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-
 	-- Startup
 	use("goolord/alpha-nvim")
-
-	-- Termianl
-	use("akinsho/toggleterm.nvim")
 
 	-- Motion
 	use("phaazon/hop.nvim")
 	-- Keybinding
 	use("folke/which-key.nvim")
-
-	use("folke/trouble.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
