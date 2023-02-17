@@ -42,5 +42,6 @@ opt.sidescrolloff = 5
 opt.iskeyword:append("-")
 opt.wildignore:append({ "*/node_modules/*" })
 
-opt.foldmethod = "indent"
-opt.foldlevel = 999
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 99

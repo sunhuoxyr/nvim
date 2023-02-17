@@ -97,11 +97,16 @@ return packer.startup(function(use)
 	-- Startup
 	use("goolord/alpha-nvim")
 
+	use("glepnir/dashboard-nvim")
+
+	use("ahmedkhalf/project.nvim")
+
 	-- Motion
 	use("phaazon/hop.nvim")
 	-- Keybinding
 	use("folke/which-key.nvim")
-
+	use("lewis6991/gitsigns.nvim")
+	use("akinsho/toggleterm.nvim")
 	if packer_bootstrap then
 		require("packer").sync()
 	end
