@@ -36,7 +36,6 @@ keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- Find fil
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", opts) -- Find string
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", opts) -- Find string under cursor
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- list open buffers
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 
 -- telescope git commands
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts) -- list all git commits (use <cr> to checkout) ['gc' for git commits]
@@ -44,8 +43,16 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>", opts) -- list 
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts) -- list git branches (use <cr> to checkout) ['gb' for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts) -- list current changes per file with diff preview ['gs' for git status]
 
+-- gitsigns
+keymap.set("n", "<leader>glb", ":Gitsigns toggle_current_line_blame<CR>", opts)
+keymap.set("n", "]c", "<cmd>Gitsigns next_hunk<CR>", opts)
+keymap.set("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", opts)
+keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", opts)
+keymap.set("n", "<leader>gdc", "<cmd>Gitsigns toggle_deleted<CR>", opts)
+
 -- toggleterm
 keymap.set("t", "<esc>", "<C-\\><C-n>", opts)
+keymap.set("t", "jk", "<C-\\><C-n>", opts)
 keymap.set("t", "<C-l>", "<Cmd> wincmd l<CR>", opts)
 keymap.set("t", "<C-h>", "<Cmd> wincmd h<CR>", opts)
 keymap.set("t", "<C-j>", "<Cmd> wincmd j<CR>", opts)

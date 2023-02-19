@@ -1,46 +1,40 @@
-local status, db = pcall(require, "dashboard")
+local status, dashboard = pcall(require, "dashboard")
 if not status then
 	return
 end
 
-db.custom_footer = {
-	"",
-	"",
-	"https://github.com/nshen/learn-neovim-lua",
-}
-
-db.custom_center = {
-	{
-		icon = "  ",
-		desc = "Projects                            ",
-		action = "Telescope projects",
+dashboard.setup({
+	config = {
+		theme = "hyper",
+		header = {
+			[[          ▀████▀▄▄              ▄█ ]],
+			[[            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ]],
+			[[    ▄        █          ▀▀▀▀▄  ▄▀  ]],
+			[[   ▄▀ ▀▄      ▀▄              ▀▄▀  ]],
+			[[  ▄▀    █     █▀   ▄█▀▄      ▄█    ]],
+			[[  ▀▄     ▀▄  █     ▀██▀     ██▄█   ]],
+			[[   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
+			[[    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
+			[[   █   █  █      ▄▄           ▄▀   ]],
+		},
+		shortcut = {
+			{
+				desc = " Files",
+				action = "Telescope find_files",
+				key = "f",
+			},
+			{
+				desc = "  History",
+				action = "Telescope oldfiles",
+				key = "h",
+			},
+			{
+				desc = " Marks",
+				group = "DiagnosticHint",
+				action = "Telescope marks",
+				key = "m",
+			},
+		},
+		footer = {},
 	},
-	{
-		icon = "  ",
-		desc = "Recently files                      ",
-		action = "Telescope oldfiles",
-	},
-	{
-		icon = "  ",
-		desc = "Edit keybindings                    ",
-		action = "edit ~/.config/nvim/lua/keybindings.lua",
-	},
-	{
-		icon = "  ",
-		desc = "Edit Projects                       ",
-		action = "edit ~/.local/share/nvim/project_nvim/project_history",
-	},
-}
-
-db.custom_header = {
-	[[]],
-	[[          ▀████▀▄▄              ▄█ ]],
-	[[            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ]],
-	[[    ▄        █          ▀▀▀▀▄  ▄▀  ]],
-	[[   ▄▀ ▀▄      ▀▄              ▀▄▀  ]],
-	[[  ▄▀    █     █▀   ▄█▀▄      ▄█    ]],
-	[[  ▀▄     ▀▄  █     ▀██▀     ██▄█   ]],
-	[[   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
-	[[    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
-	[[   █   █  █      ▄▄           ▄▀   ]],
-}
+})
