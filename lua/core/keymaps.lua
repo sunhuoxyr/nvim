@@ -48,7 +48,7 @@ keymap.set("n", "<leader>glb", ":Gitsigns toggle_current_line_blame<CR>", opts)
 keymap.set("n", "]c", "<cmd>Gitsigns next_hunk<CR>", opts)
 keymap.set("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", opts)
 keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", opts)
-keymap.set("n", "<leader>gdc", "<cmd>Gitsigns toggle_deleted<CR>", opts)
+keymap.set("n", "<leader>gD", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
 -- toggleterm
 keymap.set("t", "<esc>", "<C-\\><C-n>", opts)
