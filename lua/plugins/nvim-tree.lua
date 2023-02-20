@@ -29,7 +29,7 @@ nvimtree.setup({
 	view = {
 		mappings = {
 			list = {
-				{ key = "<C-x>", action = "" },
+				{ key = "<C-x>", action = "split" },
 				{ key = "<C-v>", action = "vsplit" },
 				{ key = "<C-t>", action = "tabnew" },
 				{ key = "<", action = "prev_sibling" },

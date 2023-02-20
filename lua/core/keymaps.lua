@@ -9,7 +9,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", opts)
 keymap.set("n", "x", '"_x', opts)
 
 -- Split window
-keymap.set("n", "<leader>sh", ":split<CR>", opts)
+keymap.set("n", "<leader>sx", ":split<CR>", opts)
 keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
 -- 关闭当前页面
 keymap.set("n", "<leader>sc", "<C-w>c", opts)
