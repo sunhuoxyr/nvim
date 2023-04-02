@@ -35,7 +35,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 
 	-- Colorschemes
-	use("Mofiqul/dracula.nvim")
+	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("norcalli/nvim-colorizer.lua")
 	use("christoomey/vim-tmux-navigator")
@@ -94,9 +94,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
-	use("goolord/alpha-nvim")
-
-	use("glepnir/dashboard-nvim")
 	-- Motion
 	use("phaazon/hop.nvim")
 	-- Keybinding

@@ -9,12 +9,10 @@ keymap("n", "<leader>nh", ":nohl<CR>", opts)
 keymap("n", "x", '"_x', opts)
 
 -- Split window
-keymap("n", "<leader>sx", ":split<CR>", opts)
-keymap("n", "<leader>sv", ":vsplit<CR>", opts)
--- 关闭当前页面
-keymap("n", "<leader>sc", "<C-w>c", opts)
--- 关闭其他页面 only
-keymap("n", "<leader>so", "<C-w>o", opts)
+keymap("n", "<leader>sv", "<C-w>v") -- split window vertically
+keymap("n", "<leader>sh", "<C-w>s") -- split window horizontally
+keymap("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
+keymap("n", "<leader>sx", ":close<CR>") -- close current split window
 
 -- 上下移动选中文本
 keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
@@ -24,7 +22,7 @@ keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>to", ":tabnew<CR>", opts)
 keymap("n", "<leader>tn", ":tabn<CR>", opts)
 keymap("n", "<leader>tp", ":tabp<CR>", opts)
-keymap("n", "<leader>tc", ":tabclose<CR>", opts) -- close current tab
+keymap("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
 
 -- Select all
 keymap("n", "<C-a>", "gg<S-v>G", opts)
@@ -37,6 +35,7 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- Find files
 keymap("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", opts) -- Find string
 keymap("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", opts) -- Find string under cursor
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- list open buffers
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
 -- telescope git commands
 keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts) -- list all git commits (use <cr> to checkout) ['gc' for git commits]

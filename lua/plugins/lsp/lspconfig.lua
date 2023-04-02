@@ -24,9 +24,13 @@ local on_attach = function(client, bufnr)
 	-- LSP
 	keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
 	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
+
+	keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
+	keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
+	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references   use <C-t> to jump back
-	keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- Code action
-	keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
+	keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- Code action
+	keymap("n", "rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- Peek definition
 	keymap("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts) --Go to definition
 	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation

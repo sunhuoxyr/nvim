@@ -1,17 +1,18 @@
-local status, nvimtree = pcall(require, "nvim-tree")
-if not status then
+-- import nvim-tree plugin safely
+local setup, nvimtree = pcall(require, "nvim-tree")
+if not setup then
 	return
 end
 
+-- recommended settings from nvim-tree documentation
 vim.g.loaded_netrw = 1
-vim.g.loaded_netrwplugin = 1
--- change color for arrows in tree to light blue
-vim.cmd([[ highlight nvimtreeindentmarker guifg=#3fc5ff ]])
+vim.g.loaded_netrwPlugin = 1
 
+-- change color for arrows in tree to light blue
+vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+
+-- configure nvim-tree
 nvimtree.setup({
-	-- 使用了 dashboard, 不在需要直接开启了
-	-- open_on_setup = true,
-	update_cwd = true,
 	-- change folder arrow icons
 	renderer = {
 		icons = {
@@ -23,42 +24,41 @@ nvimtree.setup({
 			},
 		},
 	},
-	update_focused_file = {
-		enable = true,
-	},
-	view = {
-		mappings = {
-			list = {
-				{ key = "<C-x>", action = "split" },
-				{ key = "<C-v>", action = "vsplit" },
-				{ key = "<C-t>", action = "tabnew" },
-				{ key = "<", action = "prev_sibling" },
-				{ key = ">", action = "next_sibling" },
-				{ key = "P", action = "parent_node" },
-				{ key = "K", action = "first_sibling" },
-				{ key = "J", action = "last_sibling" },
-				{ key = "R", action = "refresh" },
-				{ key = "a", action = "create" },
-				{ key = "d", action = "remove" },
-				{ key = "r", action = "rename" },
-				{ key = "<C-r>", action = "full_rename" },
-				{ key = "e", action = "rename_basename" },
-				{ key = "x", action = "cut" },
-				{ key = "c", action = "copy" },
-				{ key = "p", action = "paste" },
-				{ key = "y", action = "copy_name" },
-				{ key = "Y", action = "copy_path" },
-				{ key = "gy", action = "copy_absolute_path" },
-				{ key = "f", action = "live_filter" },
-				{ key = "F", action = "clear_live_filter" },
-				{ key = "q", action = "close" },
-				{ key = "f", action = "live_filter" },
-				{ key = "F", action = "clear_live_filter" },
-				{ key = "q", action = "close" },
-				{ key = "<C-k>", action = "toggle_file_info" },
-				{ key = { "<C-]>", "<2-RightMouse>" }, action = "cd" },
-				{ key = "H", action = "toggle_dotfiles" },
+	-- disable window_picker for
+	-- explorer to work well with
+	-- window splits
+	actions = {
+		open_file = {
+			window_picker = {
+				enable = false,
 			},
 		},
 	},
+	-- 	git = {
+	-- 		ignore = false,
+	-- 	},
 })
+
+-- open nvim-tree on setup
+
+local function open_nvim_tree(data)
+	-- buffer is a [No Name]
+	local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+
+	-- buffer is a directory
+	local directory = vim.fn.isdirectory(data.file) == 1
+
+	if not no_name and not directory then
+		return
+	end
+
+	-- change to the directory
+	if directory then
+		vim.cmd.cd(data.file)
+	end
+
+	-- open the tree
+	require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

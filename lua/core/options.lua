@@ -28,6 +28,9 @@ opt.background = "dark"
 -- 显示左侧图标指示列
 opt.signcolumn = "yes"
 
+-- backspace
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
