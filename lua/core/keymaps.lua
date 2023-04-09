@@ -29,6 +29,7 @@ keymap("n", "<C-a>", "gg<S-v>G", opts)
 
 -- nvim-tree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>a", "<cmd>AerialToggle!<CR>", opts)
 
 -- telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- Find files
