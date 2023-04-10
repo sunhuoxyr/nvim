@@ -20,7 +20,7 @@ mason_lspconfig.setup({
 		"tsserver",
 		"html",
 		"cssls",
-    "lua_ls",
+    	"lua_ls",
 		"rust_analyzer",
 		"volar",
 		"emmet_ls",

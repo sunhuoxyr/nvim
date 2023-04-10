@@ -29,7 +29,7 @@ local options = {
 
 	triggers_blacklist = {
 		-- list of mode / prefixes that should never be hooked by WhichKey
-		i = { "j", "k", "<Space>" },
+		i = { "j", "k", "<Space>", "<leader>" },
 		v = { "j", "k" },
 	},
 }

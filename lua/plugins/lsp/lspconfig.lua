@@ -28,6 +28,7 @@ local on_attach = function(client, bufnr)
 	keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
 	keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
 	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+	keymap("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references   use <C-t> to jump back
 	keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- Code action
 	keymap("n", "rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
