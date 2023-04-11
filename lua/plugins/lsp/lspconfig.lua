@@ -37,7 +37,6 @@ local on_attach = function(client, bufnr)
 	keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 
 	keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- Toggle outline
-	keymap({ "n", "t" }, "<leader>\\", "<cmd>Lspsaga term_toggle<CR>", opts)
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
