@@ -46,11 +46,11 @@ return packer.startup(function(use)
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
 
+	use({ "nvim-tree/nvim-web-devicons" })
 	-- file explorer
-	use({ "nvim-tree/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-
+	use({ "nvim-tree/nvim-tree.lua" })
 	-- statusline
-	use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	use({ "nvim-lualine/lualine.nvim" })
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
@@ -69,7 +69,8 @@ return packer.startup(function(use)
 
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	use({ "glepnir/lspsaga.nvim", opt = true, branch = "main", event = "LspAttach" }) -- enhanced lsp uis
+
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -99,7 +100,6 @@ return packer.startup(function(use)
 	-- Keybinding
 	use("folke/which-key.nvim")
 	use("lewis6991/gitsigns.nvim")
-	use("akinsho/toggleterm.nvim")
 	use("stevearc/aerial.nvim")
 	if packer_bootstrap then
 		require("packer").sync()

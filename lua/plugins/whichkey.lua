@@ -1,37 +1,17 @@
-local present, wk = pcall(require, "which-key")
+local status, wk = pcall(require, "which-key")
 
-if not present then
+if not status then
 	return
 end
 
-local options = {
-
-	icons = {
-		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-		separator = "  ", -- symbol used between a key and it's label
-		group = "+", -- symbol prepended to a group
-	},
-
-	popup_mappings = {
-		scroll_down = "<c-d>", -- binding to scroll down inside the popup
-		scroll_up = "<c-u>", -- binding to scroll up inside the popup
-	},
-
-	window = {
-		border = "none", -- none/single/double/shadow
-	},
-
+wk.setup({
 	layout = {
-		spacing = 6, -- spacing between columns
+		border = 6,
 	},
-
-	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
 
 	triggers_blacklist = {
 		-- list of mode / prefixes that should never be hooked by WhichKey
 		i = { "j", "k", "<Space>", "<leader>" },
 		v = { "j", "k" },
 	},
-}
-
-wk.setup(options)
+})
