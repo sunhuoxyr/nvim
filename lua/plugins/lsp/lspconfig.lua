@@ -22,22 +22,23 @@ local keymap = vim.keymap.set -- for conciseness
 local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	-- LSP
+	keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references   use <C-t> to jump back
+	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- Peek definition
+	keymap("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts) -- got to declaration
+	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
+
+	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
 	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 
 	keymap("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
 	keymap("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-	keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references   use <C-t> to jump back
 	keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- Code action
-	keymap("n", "rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- Peek definition
-	keymap("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts) --Go to definition
-	keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-	keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", opts) -- Peek type definition
-	keymap("n", "gT", "<cmd>Lspsaga goto_type_definition<CR>", opts) -- Go to type definition
+	keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
+
 	keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- Toggle outline
 	keymap({ "n", "t" }, "<leader>\\", "<cmd>Lspsaga term_toggle<CR>", opts)
+
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
 		keymap("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
@@ -80,7 +81,7 @@ lspconfig["cssls"].setup({
 lspconfig["volar"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	filetypes = { "vue", "typescript" },
+	filetypes = { "vue" },
 })
 
 lspconfig["rust_analyzer"].setup({

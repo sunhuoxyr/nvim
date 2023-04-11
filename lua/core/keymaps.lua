@@ -14,22 +14,28 @@ keymap("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap("n", "<leader>sx", ":close<CR>") -- close current split window
 
+-- Tab movement
+keymap("n", "<leader>to", ":tabnew<CR>") -- open new tab
+keymap("n", "<leader>tx", ":tabclose<CR>") -- close current tab
+keymap("n", "<leader>tn", ":tabn<CR>") --  go to next tab
+keymap("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+
 -- 上下移动选中文本
 keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
 
--- Tab movement
-keymap("n", "<leader>to", ":tabnew<CR>", opts)
-keymap("n", "<leader>tn", ":tabn<CR>", opts)
-keymap("n", "<leader>tp", ":tabp<CR>", opts)
-keymap("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
-
 -- Select all
 keymap("n", "<C-a>", "gg<S-v>G", opts)
 
+----------------------
+-- Plugin Keybinds
+----------------------
+
+-- vim-maximizer
+keymap("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
+
 -- nvim-tree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>a", "<cmd>AerialToggle!<CR>", opts)
 
 -- telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- Find files
@@ -44,6 +50,9 @@ keymap("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>", opts) -- list git 
 keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts) -- list git branches (use <cr> to checkout) ['gb' for git branch]
 keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts) -- list current changes per file with diff preview ['gs' for git status]
 
+-- restart lsp server
+keymap("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
 -- gitsigns
 keymap("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opts)
 keymap("n", "]c", "<cmd>Gitsigns next_hunk<CR>", opts)
@@ -51,13 +60,4 @@ keymap("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", opts)
 keymap("n", "<leader>gD", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
--- toggleterm
-keymap("t", "<esc>", "<C-\\><C-n>", opts)
-keymap("t", "jk", "<C-\\><C-n>", opts)
-keymap("t", "<C-l>", "<Cmd> wincmd l<CR>", opts)
-keymap("t", "<C-h>", "<Cmd> wincmd h<CR>", opts)
-keymap("t", "<C-j>", "<Cmd> wincmd j<CR>", opts)
-keymap("t", "<C-k>", "<Cmd> wincmd k<CR>", opts)
-
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 keymap("i", "<C-f>", "<Esc>la", opts)

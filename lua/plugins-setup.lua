@@ -38,7 +38,8 @@ return packer.startup(function(use)
 	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("norcalli/nvim-colorizer.lua")
-	use("christoomey/vim-tmux-navigator")
+	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+	use("szw/vim-maximizer") -- maximizes and restores current window
 
 	-- essential plugins
 	use("kylechui/nvim-surround") -- add/delete/change surrounding pairs
@@ -46,9 +47,12 @@ return packer.startup(function(use)
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
 
+	-- vs-code like icons
 	use({ "nvim-tree/nvim-web-devicons" })
+
 	-- file explorer
 	use({ "nvim-tree/nvim-tree.lua" })
+
 	-- statusline
 	use({ "nvim-lualine/lualine.nvim" })
 
@@ -69,7 +73,14 @@ return packer.startup(function(use)
 
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
-	use({ "glepnir/lspsaga.nvim", opt = true, branch = "main", event = "LspAttach" }) -- enhanced lsp uis
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	}) -- enhanced lsp uis
 
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
@@ -91,6 +102,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("romgrk/nvim-treesitter-context") -- show class/function at the top
+
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
@@ -100,7 +112,7 @@ return packer.startup(function(use)
 	-- Keybinding
 	use("folke/which-key.nvim")
 	use("lewis6991/gitsigns.nvim")
-	use("stevearc/aerial.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
