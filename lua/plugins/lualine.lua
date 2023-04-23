@@ -5,7 +5,7 @@ end
 
 lualine.setup({
 	options = {
-		theme = "catppuccin",
+		theme = "dracula",
 	},
 	sections = {
 		lualine_a = { "mode" },
